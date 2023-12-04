@@ -5,11 +5,82 @@
 
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
+#include "Interaction/MouseoverInterface.h"
 
 AAuraPlayerController::AAuraPlayerController()
 {
 	bReplicates = true;
 }
+
+void AAuraPlayerController::PlayerTick(float DeltaTime)
+{
+	Super::PlayerTick(DeltaTime);
+
+	CursorTrace();
+
+}
+
+void AAuraPlayerController::CursorTrace()
+{
+	FHitResult CursorHit;
+	GetHitResultUnderCursor(ECC_Visibility, false, CursorHit);
+	if (!CursorHit.bBlockingHit) return;
+
+	LastActor = ThisActor;
+	ThisActor = Cast<IMouseoverInterface>(CursorHit.GetActor());
+
+	/**
+	* Line trace from cursor. Several possibilities
+	* A LastActor is null && ThisActor is null
+	*	- no nothing
+	* B LastActor is null && ThisActor is valid
+	*	- Highlight ThisActor
+	*  C LastActor is valid && This actor is null
+	*	- unhighlight LastActor
+	* D Both actors are valid but LastActor != ThisActor
+	*	- unhilight LastActor && Highlight ThisActor
+	* E Both actors are valid and are same actor
+	*	- do nothing
+	*/
+
+	if (LastActor == nullptr)
+	{
+		if (ThisActor != nullptr)
+		{
+			//case B
+			ThisActor->HighlightActor();
+		}
+		else
+		{
+			//both are valid, do nothing - case A
+		}
+	}
+	else //LastActor is valid
+	{
+		
+		if (ThisActor == nullptr)
+		{
+			//case C
+			LastActor->UnHighlightActor();
+		}
+		else //both actors are valid
+		{
+			if (LastActor != ThisActor)
+			{
+				//case D
+				LastActor->UnHighlightActor();
+				ThisActor->HighlightActor();
+
+			}
+			else //both actors are valid and are the same actor
+			{
+				//case E - do nothing
+			}
+		}
+	}
+
+}
+
 void AAuraPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
@@ -52,4 +123,5 @@ void AAuraPlayerController::Move(const FInputActionValue& InputActionValue)
 		ControlledPawn->AddMovementInput(RightDirection, InputAxisVector.Y);
 	}
 }
+
 
