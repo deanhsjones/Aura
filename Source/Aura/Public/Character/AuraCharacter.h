@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Character/AuraCharacterBase.h"
+
 #include "AuraCharacter.generated.h"
 
 /**
@@ -16,5 +17,15 @@ class AURA_API AAuraCharacter : public AAuraCharacterBase
 
 public:
 	AAuraCharacter();
+
+	/*begin interface*/
+	virtual void PossessedBy(AController* NewController) override;
+	virtual void OnRep_PlayerState() override;
+	/*end interface*/
+
+protected:
+	
+private:
+	void InitAbilityActorInfo();
 
 };
