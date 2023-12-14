@@ -2,12 +2,14 @@
 
 #pragma once
 
+#include "GameplayEffectTypes.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "AuraEffectActor.generated.h"
 
 
 class UGameplayEffect;
+class UAbilitySystemComponent;
 
 UENUM(BlueprintType)
 enum class EEffectApplicationPolicy
@@ -31,10 +33,6 @@ class AURA_API AAuraEffectActor : public AActor
 	
 public:	
 	AAuraEffectActor();
-
-
-
-
 
 protected:
 
@@ -70,5 +68,7 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
 	EEffectRemovalPolicy InfiniteEffectRemovalPolicy = EEffectRemovalPolicy::RemoveOnEndOverlap;
+
+	TMap<FActiveGameplayEffectHandle, UAbilitySystemComponent*> ActiveEffectHandles;
 
 };
