@@ -5,7 +5,7 @@
 
 #include "AbilitySystemBlueprintLibrary.h"
 #include "GameFramework/Character.h"
-
+#include "GameplayEffectExtension.h"
 
 #include "Net/UnrealNetwork.h"
 
@@ -86,67 +86,6 @@ void UAuraAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	FEffectProperties Props;
 	SetEffectProperties(Data, Props);
 
-
-
-	//if (Data.EvaluatedData.Attribute == GetHealthAttribute())
-	//{
-	//	UE_LOG(LogTemp, Warning, TEXT("Health from GetHeath(): %f"), GetHealth());
-	//	UE_LOG(LogTemp, Warning, TEXT("Magnitude: %f"), Data.EvaluatedData.Magnitude);
-	//}
-
-	//Source = causer of effect, Target = target of effect (owner of this AS)
-
-	//const FGameplayEffectContextHandle EffectContextHandle = Data.EffectSpec.GetContext();
-	//const UAbilitySystemComponent* SourceASC = EffectContextHandle.GetOriginalInstigatorAbilitySystemComponent();
-
-	//if (IsValid(SourceASC) && SourceASC->AbilityActorInfo.IsValid() && SourceASC->AbilityActorInfo->AvatarActor.IsValid())
-	//{
-	//	AActor* SourceAvatarActor = SourceASC->AbilityActorInfo->AvatarActor.Get();
-	//	const AController* SourceController = SourceASC->AbilityActorInfo->PlayerController.Get();
-
-	//	if (SourceASC == nullptr && SourceAvatarActor != nullptr)
-	//	{
-	//		if (const APawn* Pawn = Cast<APawn>(SourceAvatarActor))
-	//		{
-	//			/*Cast<>(Pawn->GetController());*/
-	//			SourceController = Pawn->GetController();
-	//		}
-	//	}
-	//	if (SourceController)
-	//	{
-	//		ACharacter* SourceCharacter = Cast<ACharacter>(SourceController->GetPawn());
-	//	}
-
-	//}
-
-	//if (Data.Target.AbilityActorInfo.IsValid() && Data.Target.AbilityActorInfo->AvatarActor.IsValid())
-	//{
-	//	AActor* TargetAvatarActor = Data.Target.AbilityActorInfo->AvatarActor.Get();
-	//	ACharacter* TargetCharacter = Cast<ACharacter>(TargetAvatarActor);
-	//	const AController* TargetController = Data.Target.AbilityActorInfo->PlayerController.Get();
-	//	UAbilitySystemComponent* TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(TargetAvatarActor);
-	//}
-
-
-
-	//if (Data.Target.AbilityActorInfo.IsValid() && Data.Target.AbilityActorInfo->AvatarActor.IsValid())
-	//{
-	//	AActor* TargetActorAvatar = Data.Target.AbilityActorInfo->AvatarActor.Get();
-	//	const AController* TargetController = Data.Target.AbilityActorInfo->PlayerController.Get();
-
-	//	if (TargetActorAvatar != nullptr)
-	//	{
-	//		if (const APawn* Pawn = Cast<APawn>(TargetActorAvatar))
-	//		{
-	//			/*Cast<>(Pawn->GetController());*/
-	//			TargetController = Pawn->GetController();
-	//		}
-	//	}
-	//	if (TargetController)
-	//	{
-	//		ACharacter* TargetCharacter = Cast<ACharacter>(TargetController->GetPawn());
-	//	}
-	//}
 }
 
 void UAuraAttributeSet::OnRep_Health(const FGameplayAttributeData& OldHealth) const
