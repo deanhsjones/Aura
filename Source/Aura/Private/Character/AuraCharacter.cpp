@@ -55,9 +55,7 @@ void AAuraCharacter::InitAbilityActorInfo()
 	//nb characters are now dependant on the ASC
 	AbilitySystemComponent = AuraPlayerState->GetAbilitySystemComponent();
 	AttributeSet = AuraPlayerState->GetAttributeSet();
-
 	
-
 	if (AAuraPlayerController* AuraPlayerController = Cast<AAuraPlayerController>(GetController()))
 	{
 		if (AAuraHUD* AuraHUD = Cast<AAuraHUD>(AuraPlayerController->GetHUD()))
@@ -66,6 +64,6 @@ void AAuraCharacter::InitAbilityActorInfo()
 		}
 
 	}
-	
+	InitialisePrimaryAttributes();
 	
 }
