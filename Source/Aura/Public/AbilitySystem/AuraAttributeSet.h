@@ -94,33 +94,70 @@ public:
 	//Getter accessor function example
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Health);
 
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxHealth, Category = "Vital Attributes")
-		FGameplayAttributeData MaxHealth;
-	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxHealth);
 
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Mana, Category = "Vital Attributes")
 		FGameplayAttributeData Mana;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Mana);
 
-	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxMana, Category = "Vital Attributes")
+
+	/*
+	*	Secondary Attributes
+	*/
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_Armor, Category = "Secondary Attributes")
+		FGameplayAttributeData Armor;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Armor);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_ArmorPen, Category = "Secondary Attributes")
+		FGameplayAttributeData ArmorPen;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, ArmorPen);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_BlockChance, Category = "Secondary Attributes")
+		FGameplayAttributeData BlockChance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, BlockChance);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_CritChance, Category = "Secondary Attributes")
+		FGameplayAttributeData CritChance;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, CritChance);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_CritDmg, Category = "Secondary Attributes")
+		FGameplayAttributeData CritDmg;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, CritDmg);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_CritResist, Category = "Secondary Attributes")
+		FGameplayAttributeData CritResist;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, CritResist);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_HealthRegen, Category = "Secondary Attributes")
+		FGameplayAttributeData HealthRegen;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, HealthRegen);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_ManaRegen, Category = "Secondary Attributes")
+		FGameplayAttributeData ManaRegen;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, ManaRegen);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxHealth, Category = "Secondary Attributes")
+		FGameplayAttributeData MaxHealth;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxHealth);
+
+	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_MaxMana, Category = "Secondary Attributes")
 		FGameplayAttributeData MaxMana;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxMana);
+
 	//end attributes
 
 
 	//rep notifs
+
+	//vital
+
 	UFUNCTION()
 	void  OnRep_Health(const FGameplayAttributeData& OldHealth) const;
-
-	UFUNCTION()
-		void  OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth) const;
-
+	
 	UFUNCTION()
 		void  OnRep_Mana(const FGameplayAttributeData& OldMana) const;
 
-	UFUNCTION()
-		void  OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) const;
-
+	//primary
 	UFUNCTION()
 		void  OnRep_Strength(const FGameplayAttributeData& OldStrength) const;
 
@@ -132,6 +169,39 @@ public:
 
 	UFUNCTION()
 		void  OnRep_Vigor(const FGameplayAttributeData& OldVigor) const;
+
+	//secondary
+	UFUNCTION()
+		void  OnRep_Armor(const FGameplayAttributeData& OldArmor) const;
+
+	UFUNCTION()
+		void  OnRep_ArmorPen(const FGameplayAttributeData& OldArmorPen) const;
+
+	UFUNCTION()
+		void  OnRep_BlockChance(const FGameplayAttributeData& OldBlockChance) const;
+
+	UFUNCTION()
+		void  OnRep_CritChance(const FGameplayAttributeData& OldCritChance) const;
+
+	UFUNCTION()
+		void  OnRep_CritDmg(const FGameplayAttributeData& OldCritDmg) const;
+
+	UFUNCTION()
+		void  OnRep_CritResist(const FGameplayAttributeData& OldCritResist) const;
+
+	UFUNCTION()
+		void  OnRep_HealthRegen(const FGameplayAttributeData& OldHealthRegen) const;
+
+	UFUNCTION()
+		void  OnRep_ManaRegen(const FGameplayAttributeData& OldManaRegen) const;
+
+	UFUNCTION()
+		void  OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth) const;
+
+
+	UFUNCTION()
+		void  OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana) const;
+
 
 
 	//end rep notifs
