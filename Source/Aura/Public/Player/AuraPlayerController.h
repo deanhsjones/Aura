@@ -1,5 +1,8 @@
 // Copyright Dean Jones
 
+#pragma once
+
+#include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "AuraPlayerController.generated.h"
 
