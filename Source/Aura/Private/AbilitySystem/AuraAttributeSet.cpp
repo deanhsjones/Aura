@@ -14,17 +14,23 @@ UAuraAttributeSet::UAuraAttributeSet()
 {
 	const FAuraGameplayTags& GameplayTags = FAuraGameplayTags::Get();
 
-	//FAttributeSignature StrengthDelegate;
-	//StrengthDelegate.BindStatic(GetStrengthAttribute);
-	//TagsToAttributes.Add(GameplayTags.Attributes_Primary_Strength, StrengthDelegate);
-	//FAttributeSignature IntelligenceDelegate;
-	//IntelligenceDelegate.BindStatic(GetIntelligenceAttribute);
-	//TagsToAttributes.Add(GameplayTags.Attributes_Primary_Intelligence, IntelligenceDelegate);
-
+	/* Primary Attributes*/
 	TagsToAttributes.Add(GameplayTags.Attributes_Primary_Strength, GetStrengthAttribute);
 	TagsToAttributes.Add(GameplayTags.Attributes_Primary_Intelligence, GetIntelligenceAttribute);
 	TagsToAttributes.Add(GameplayTags.Attributes_Primary_Resilience, GetResilienceAttribute);
 	TagsToAttributes.Add(GameplayTags.Attributes_Primary_Vigor, GetVigorAttribute);
+
+	/* Secondary Attributes*/
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_Armor, GetArmorAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_ArmorPen, GetArmorPenAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_Block, GetBlockChanceAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_CritChance, GetCritChanceAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_CritDmg, GetCritDmgAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_CritResist, GetCritResistAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_HealthRegen, GetHealthRegenAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_ManaRegen, GetManaRegenAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_MaxHealth, GetMaxHealthAttribute);
+	TagsToAttributes.Add(GameplayTags.Attributes_Secondary_MaxMana, GetMaxManaAttribute);
 
 }
 
