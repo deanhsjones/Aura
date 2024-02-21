@@ -2,7 +2,7 @@
 
 
 #include "Character/AuraCharacterBase.h"
-//#include "AbilitySystemComponent.h"
+#include "AbilitySystemComponent.h"
 #include "AbilitySystem/AuraAbilitySystemComponent.h"
 
 AAuraCharacterBase::AAuraCharacterBase()

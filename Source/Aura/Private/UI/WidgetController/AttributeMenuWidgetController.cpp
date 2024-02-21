@@ -15,20 +15,10 @@ void UAttributeMenuWidgetController::BindCallbacksToDependencies()
 		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(Pair.Value()).AddLambda(
 			[this, Pair](const FOnAttributeChangeData& Data)
 			{
-				//get the AttributeInfo
-				//get an FAuraAttributeInfo struct
-				//FAuraAttributeInfo Info = AttributeInfo->FindAttributeInfoForTag(Pair.Key);
-				//make sure it’s attribute value is correct
-				//Info.AttributeValue = Pair.Value().GetNumericValue(AS);
-				//and broadcast that struct to widgets
-				//AttributeInfoDelegate.Broadcast(Info);
-
 				BroadcastAttributeInfo(Pair.Key, Pair.Value());
 			}
 		);
 	}
-	
-
 }
 
 void UAttributeMenuWidgetController::BroadcastAttributeInfo(const FGameplayTag AttributeTag, const FGameplayAttribute& Attribute) const
@@ -44,13 +34,8 @@ void UAttributeMenuWidgetController::BroadcastInitialValues()
 
 	check(AttributeInfo);
 
-
 	for (auto& Pair : AS->TagsToAttributes)
 	{
-		//FAuraAttributeInfo Info = AttributeInfo->FindAttributeInfoForTag(Pair.Key);
-		//Info.AttributeValue = Pair.Value().GetNumericValue(AS);
-		//AttributeInfoDelegate.Broadcast(Info);
-
 		BroadcastAttributeInfo(Pair.Key, Pair.Value());
 	}
 }
