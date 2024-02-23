@@ -6,11 +6,11 @@
 #include "GameFramework/HUD.h"
 #include "AuraHUD.generated.h"
 
-class UAttributeSet;
 class UAbilitySystemComponent;
-class UOverlayWidgetController;
 class UAttributeMenuWidgetController;
+class UAttributeSet;
 class UAuraUserWidget;
+class UOverlayWidgetController;
 struct FWidgetControllerParams;
 
 /**

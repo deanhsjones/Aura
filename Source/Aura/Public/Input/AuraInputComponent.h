@@ -2,9 +2,9 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "EnhancedInputComponent.h"
 #include "AuraInputConfig.h"
+#include "EnhancedInputComponent.h"
+#include "CoreMinimal.h"
 #include "AuraInputComponent.generated.h"
 
 /**
@@ -15,15 +15,16 @@ class AURA_API UAuraInputComponent : public UEnhancedInputComponent
 {
 	GENERATED_BODY()
 public:
-	template<class UserClass, typename PressedFuncType, typename HeldFuncType, typename ReleasedFuncType>
+	template<class UserClass, typename PressedFuncType, typename ReleasedFuncType, typename HeldFuncType>
 	void BindAbilityActions(const UAuraInputConfig* InputConfig,
 		UserClass* Object,
 		PressedFuncType PressedFunc,
-		HeldFuncType HeldFunc,
-		ReleasedFuncType ReleasedFunc)
+		ReleasedFuncType ReleasedFunc,
+		HeldFuncType HeldFunc
+		)
 	{
 		check(InputConfig);
-		for (const FAuraInputAction : InputConfig->AbilityInputActions)
+		for (const FAuraInputAction& Action : InputConfig->AbilityInputActions)
 		{
 			if (Action.InputAction && Action.InputTag.IsValid())
 			{

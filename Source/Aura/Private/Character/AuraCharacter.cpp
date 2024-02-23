@@ -2,14 +2,13 @@
 
 
 #include "Character/AuraCharacter.h"
+
 #include "AbilitySystemComponent.h"
+#include "AbilitySystem/AuraAbilitySystemComponent.h"
+#include "GameFramework/CharacterMovementComponent.h"
+#include "Player/AuraPlayerController.h"
 #include "Player/AuraPlayerState.h"
 #include "UI/HUD/AuraHUD.h"
-#include "Player/AuraPlayerController.h"
-#include "AbilitySystem/AuraAbilitySystemComponent.h"
-
-#include "GameFramework/CharacterMovementComponent.h"
-
 
 AAuraCharacter::AAuraCharacter()
 {
@@ -21,9 +20,6 @@ AAuraCharacter::AAuraCharacter()
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationRoll = false;
 	bUseControllerRotationYaw = false;
-
-	
-
 }
 
 void AAuraCharacter::PossessedBy(AController* NewController)
@@ -32,8 +28,6 @@ void AAuraCharacter::PossessedBy(AController* NewController)
 	//init ability actor info for server
 	InitAbilityActorInfo();
 	AddCharacterAbilities();
-	
-
 }
 
 void AAuraCharacter::OnRep_PlayerState()
@@ -41,7 +35,6 @@ void AAuraCharacter::OnRep_PlayerState()
 	Super::OnRep_PlayerState();
 	//init ability actor info for client
 	InitAbilityActorInfo();
-
 }
 
 int32 AAuraCharacter::GetPlayerLevel()
@@ -51,8 +44,6 @@ int32 AAuraCharacter::GetPlayerLevel()
 
 	return AuraPlayerState->GetPlayerLevel();
 }
-
-
 
 void AAuraCharacter::InitAbilityActorInfo()
 {
@@ -70,9 +61,6 @@ void AAuraCharacter::InitAbilityActorInfo()
 		{
 			AuraHUD->InitOverlay(AuraPlayerController, AuraPlayerState, AbilitySystemComponent, AttributeSet);
 		}
-
 	}
-	
 	InitialiseDefaultAttributes();
-	
 }

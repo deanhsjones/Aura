@@ -2,9 +2,10 @@
 
 
 #include "UI/WidgetController/AttributeMenuWidgetController.h"
-#include "AuraGameplayTags.h"
-#include "AbilitySystem/Data/AttributeInfo.h"
+
 #include "AbilitySystem/AuraAttributeSet.h"
+#include "AbilitySystem/Data/AttributeInfo.h"
+#include "AuraGameplayTags.h"
 
 void UAttributeMenuWidgetController::BindCallbacksToDependencies() 
 {

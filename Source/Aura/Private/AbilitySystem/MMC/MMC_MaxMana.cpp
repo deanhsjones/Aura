@@ -2,8 +2,9 @@
 
 
 #include "AbilitySystem/MMC/MMC_MaxMana.h"
-#include "Interaction/CombatInterface.h"
+
 #include "AbilitySystem/AuraAttributeSet.h"
+#include "Interaction/CombatInterface.h"
 
 
 UMMC_MaxMana::UMMC_MaxMana()

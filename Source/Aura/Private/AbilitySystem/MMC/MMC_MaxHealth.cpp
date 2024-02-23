@@ -1,8 +1,9 @@
 // Copyright Dean Jones
 
 #include "AbilitySystem/MMC/MMC_MaxHealth.h"
-#include "Interaction/CombatInterface.h"
+
 #include "AbilitySystem/AuraAttributeSet.h"
+#include "Interaction/CombatInterface.h"
 
 UMMC_MaxHealth::UMMC_MaxHealth()
 {

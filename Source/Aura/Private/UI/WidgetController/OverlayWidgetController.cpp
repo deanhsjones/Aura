@@ -2,6 +2,7 @@
 
 
 #include "UI/WidgetController/OverlayWidgetController.h"
+
 #include "AbilitySystem/AuraAttributeSet.h"
 #include "Aura/Public/AbilitySystem/AuraAbilitySystemComponent.h"
 
@@ -65,7 +66,4 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 			}
 		}
 	);
-	
 }
-
-
