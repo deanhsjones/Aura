@@ -31,6 +31,7 @@ void AAuraEnemy::InitAbilityActorInfo()
 	AbilitySystemComponent->InitAbilityActorInfo(this, this);
 	Cast<UAuraAbilitySystemComponent>(AbilitySystemComponent)->AbilityActorInfoSet();
 	//nb characters are now dependant on the ASC
+	InitialiseDefaultAttributes();
 }
 
 void AAuraEnemy::HighlightActor()
@@ -51,3 +52,5 @@ int32 AAuraEnemy::GetPlayerLevel()
 {
 	return Level;
 }
+
+
