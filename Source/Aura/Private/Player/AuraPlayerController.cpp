@@ -45,7 +45,6 @@ void AAuraPlayerController::AutoRun()
 	}
 }
 
-
 void AAuraPlayerController::CursorTrace()
 {
 	GetHitResultUnderCursor(ECC_Visibility, false, CursorHit);
@@ -137,7 +136,6 @@ UAuraAbilitySystemComponent* AAuraPlayerController::GetASC()
 	}
 	return AuraAbilitySystemComponent;
 }
-
 
 void AAuraPlayerController::BeginPlay()
 {
