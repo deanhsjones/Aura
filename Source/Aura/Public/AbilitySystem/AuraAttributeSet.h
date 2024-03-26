@@ -93,7 +93,7 @@ public:
 		FGameplayAttributeData Vigor;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Vigor);
 
-	/* attributes
+	/* 
 	*	Vital Attributes
 	*/
 
@@ -155,6 +155,13 @@ public:
 
 	//end attributes
 
+	/*
+	*	Meta Attributes
+	*/
+
+	UPROPERTY(BlueprintReadOnly, Category = "Meta Attributes")
+	FGameplayAttributeData IncomingDamage;
+	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, IncomingDamage);
 
 	//rep notifs
 
