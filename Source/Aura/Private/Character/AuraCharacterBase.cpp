@@ -52,6 +52,7 @@ void AAuraCharacterBase::MulticastHandleDeath_Implementation()
 	GetMesh()->SetCollisionResponseToChannel(ECC_WorldStatic, ECR_Block);
 
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	Dissolve();
 }
 
 
@@ -86,6 +87,28 @@ void AAuraCharacterBase::AddCharacterAbilities()
 
 	AuraASC->GrantStartupAbilities(StartupAbilities);
 	
+}
+
+void AAuraCharacterBase::Dissolve()
+{
+	//check dissolve mat instance is valid//
+	if (IsValid(DissolveMaterialInstance))
+	{
+	//make dynamic MI based on THIS MI//
+		UMaterialInstanceDynamic* DynamicMatInst = UMaterialInstanceDynamic::Create(DissolveMaterialInstance, this);
+	//set character mesh and apply the dissolve MI//
+		GetMesh()->SetMaterial(0, DynamicMatInst);
+	//Start timeline//
+		StartDissolveTimeline(DynamicMatInst);
+	}
+	//repeat for weapon//
+	if (IsValid(WeaponDissolveMaterialInstance))
+	{
+		UMaterialInstanceDynamic* DynamicMatInst = UMaterialInstanceDynamic::Create(WeaponDissolveMaterialInstance, this);
+		Weapon->SetMaterial(0, DynamicMatInst);
+		StartWeaponDissolveTimeline(DynamicMatInst);
+	}
+
 }
 
 void AAuraCharacterBase::ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const
